@@ -82,6 +82,15 @@ def _checkValues(logger, filename, module_name, section, value):
                 )
                 result = False
 
+            if k == "no-auto-follow":
+                for m, d in v.items():
+                    if d == "":
+                        logger.info(
+                            "%s: %s config value of %s %s should not use empty value for %s, use 'ignore' if you want no message."
+                            % (filename, module_name, section, k, m)
+                        )
+                        result = False
+
             if not _checkValues(logger, filename, module_name, section, v):
                 result = False
     elif type(value) in (list, tuple):
