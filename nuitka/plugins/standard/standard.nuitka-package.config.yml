@@ -5271,7 +5271,7 @@
         'notebook': "'(lambda: None)'"
       when: 'not use_ipython'
 
-- module-name: 'tensorflow' # checksum: 8a5551ae
+- module-name: 'tensorflow' # checksum: 3e41f159
   dlls:
     - from_filenames:
         relative_path: 'core/platform'
@@ -5300,6 +5300,11 @@
         sys.modules["tensorflow.keras.activations"] = keras.activations
         sys.modules["tensorflow.keras.models"] = keras.models
       when: 'standalone'
+    - description: 'remove kubernetes as default dependency'
+      no-auto-follow:
+        'kubernetes': 'tensorflow clustering with kubernetes not available'
+      when: 'standalone'
+
   implicit-imports:
     - depends:
         - 'tensorboard'
