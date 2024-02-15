@@ -18,7 +18,7 @@
 # Plugin dill-compat has this as post load code for the "dill" package.
 # Not supposed to be good code,
 # pylint: disable=invalid-name,missing-module-docstring,protected-access
-# pylint: disable=too-many-branches,too-many-statements,used-before-assignment
+# pylint: disable=too-many-branches,too-many-statements
 from types import CodeType
 
 # spell-checker: ignore kwdefaults,globalvars
